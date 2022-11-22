@@ -107,7 +107,9 @@ savepts <- function() {
   outpath <- file.path(getwd(), outfname)
   
   message(paste0('writing to: ', outpath))
-  write.table(POINTS, file = outpath, sep = ',', row.names = FALSE, col.names = TRUE)
+tryCatch(
+  write.table(POINTS, file = outpath, sep = ',', row.names = FALSE, col.names = TRUE),
+error = function(e) { message(e) })
 }
 
 open_img <- function() {
