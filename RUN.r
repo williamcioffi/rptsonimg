@@ -126,6 +126,9 @@ open_img <- function() {
   
   if(ext == 'jpg' | ext == 'jpeg') img <- jpeg::readJPEG(f)
   if(ext == 'png') img <- png::readPNG(f)
+ 
+  # reset zoom
+  ZOOM_FACTOR <<- 1
   
   res <- drawimg(img, basename(f))
   
